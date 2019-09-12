@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Liverpool Fc App</title>
+        <link rel="icon" href="../img/iconImg.png">
+        <!--jQuery-->
+        <script src="js/lib/jquery-2.1.4.js"></script>
+        <!--jQuery mobile-->
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <!--jQuery mobile css-->
+        <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+        <!--jQuery validation lib-->
+        <script src="js/lib/jquery.validate.js"></script>
+        <!--our scripts-->
+        <script src="js/database.js"></script>
+        <script src="js/DAL.js"></script>
+        <script src="js/Facade.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/global.js"></script>
+        <!--our stylesheet-->
+        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    </head>
+    <body>
+
+        <!--home page-->
+        <div data-role="page" id="pageHome">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Home</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b" class="ui-btn-active ui-state-persist"
+                        >Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b">Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b">Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <section data-role="content">
+               <h1><center>Quick Guides</center></h1>
+                <div data-role="collapsible" data-inset="false" data-theme="b" data-content-theme="b">
+                        <h3>Ticket Prices</h3>
+                        <ul data-role="listview">
+                            <li><a href="#">Liverpool VS Manchester United - $100</a></li>
+                            <li><a href="#">Liverpool VS West Ham United - $80</a></li>
+                            <li><a href="#">Liverpool VS Fulham - $75</a></li>
+                        </ul>
+                </div><!-- /collapsible -->
+                    <div data-role="collapsible" data-inset="false" data-theme="b" data-content-theme="b">
+                        <h3>Fans</h3>
+                        <ul data-role="listview">
+                            <li><a href="#">Membership</a></li>
+                            <li><a href="https://www.liverpoolfc.com/fans/social-media/lfc-on-social-media">Social Media</a></li>
+                            <li><a href="https://www.liverpoolfc.com/fans/social-media/lfc-on-social-media">Fan Experience</a></li>
+                            <li><a href="#https://www.liverpoolfc.com/fans/apps-and-games/eng">APP & Games</a></li>
+                        </ul>
+                    </div><!-- /collapsible -->
+                    <div data-role="collapsible" data-inset="false" data-theme="b" data-content-theme="b">
+                        <h3>Anfield</h3>
+                        <ul data-role="listview">
+                            <li><a href="https://www.liverpoolfc.com/fans/fan-experience/visiting-anfield">Visiting Anfield</a></li>
+                            <li><a href="https://www.liverpoolfc.com/fans/fan-experience/getting-to-anfield">Getting to Anfield</a></li>
+                            <li><a href="https://www.liverpoolfc.com/fans/fan-experience/fan-zones">Fan Zones</a></li>
+                            <li><a href="https://www.liverpoolfc.com/fans/fan-experience/fan-zones">Meeting and Events</a></li>
+                        </ul>
+                    </div>
+                    <div data-role="collapsible" data-inset="false" data-theme="b" data-content-theme="b">
+                            <h3>News</h3>
+                            <ul data-role="listview">
+                                <li><a href="https://www.liverpoolfc.com/news/first-team">First Team</a></li>
+                                <li><a href="https://www.liverpoolfc.com/news/tickets">Tickets</a></li>
+                                <li><a href="https://www.liverpoolfc.com/news/community">Community</a></li>
+                            </ul>
+                    </div><!-- /collapsible -->
+            </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+        </div>
+
+        <!--Add Member page-->
+        <div data-role="page" id="pageAdd">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Add a Member</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b" class="ui-btn-active ui-state-persist"
+                        >Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b">Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b">Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <section data-role="content">
+                <div id="divMain">
+                    <h2 align="center">Add Member</h2>
+                    <form id="formAddMember" name="formAddMember" data-ajax="false">
+                        <label for="txtNameAdd">Name </label>
+                        <input type="text" id="txtNameAdd" name="txtNameAdd"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Name">
+
+                        <label for="txtFullNameAdd">Full Name </label>
+                        <input type="text" id="txtFullNameAdd" name="txtFullNameAdd"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Full Name">
+
+                        <label for="fieldposition">Position</label>
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="fieldposition">
+                            <input type="radio" id="radCBAdd" name="radSTCBAdd"
+                                   data-theme="a"
+                                   data-iconpos="left" value="Defender">
+                            <label for="radCBAdd">Defender</label>
+
+                            <input type="radio" id="radSTAdd" name="radSTCBAdd" data-theme="a"
+                                   data-iconpos="left" value="Striker">
+                            <label for="radSTAdd">Striker</label>
+
+                        </fieldset>
+                        <label for="txtDOBAdd">Date of Birth </label>
+                        <input type="date" id="txtDOBAdd" name="txtDOBAdd"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Date of Birth">
+
+                        <label for="txtAgeAdd">Age </label>
+                        <input type="text" id="txtAgeAdd" name="txtAgeAdd"
+                               data-theme="a" placeholder="Age (Calculated)" disabled>
+
+                        <button type="button" id="btnAdd" name="btnAdd" data-icon="plus" data-theme="b">
+                            Add
+                        </button>
+
+
+                    </form>
+                </div>
+            </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+        </div>
+
+        <!--Members page-->
+        <div data-role="page" id="pageMembers">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Members</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b" class="ui-btn-active ui-state-persist"
+                            >Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b">Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <section data-role="content">
+                <h2 align="center">Members List</h2>
+                <ul id="lvAll" data-role="listview" class="ui-listview-inset"></ul>
+            </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+        </div>
+
+        <!--Register Fixtures page-->
+        <div data-role="page" id="pageAddFixtures" >
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Create Fixtures</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b">Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b" class="ui-btn-active ui-state-persist"
+                            >Create Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b">Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <section data-role="content">
+                    <h2 align="center">Create Fixture</h2>
+                    <form id="formAddFixture" name="formAddFixture" data-ajax="false">
+                        <label for="txtTeam1Add">First Team </label>
+                        <input type="text" id="txtTeam1Add" name="txtTeam1Add"
+                                class="required" data-theme="a" data-clear-btn="true" placeholder="Team Name">
+        
+                        <label for="txtTeam2Add">Second Team</label>
+                        <input type="text" id="txtTeam2Add" name="txtTeam2Add"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Team Name">
+
+                        <label for="fixtureLocation">Match Location</label>
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="fixtureLocation">
+                            <input type="radio" id="radMelwoodAdd" name="radMelGooAdd"
+                                   data-theme="a"
+                                   data-iconpos="left" value="Melwood">
+                            <label for="radMelwoodAdd">Melwood</label>
+
+                            <input type="radio" id="radGoodisonAdd" name="radMelGooAdd" data-theme="a"
+                                   data-iconpos="left" value="Goodison">
+                            <label for="radGoodisonAdd">Goodison</label>
+                        </fieldset>
+
+                        <label for="txtDateFixtureAdd">Date</label>
+                        <input type="date" id="txtDateFixtureAdd" name="txtDateFixtureAdd"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Enter date and time">   
+       
+                        <button type="button" id="btnAddFixture" name="btnAddFixture" data-icon="plus" data-theme="b">
+                            Add
+                        </button>       
+                    </form>
+            </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+
+        </div>
+
+
+        <!--Fixtures page-->
+        <div data-role="page" id="pageFixtures" >
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Fixtures</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b">Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b" class="ui-btn-active ui-state-persist"
+                            >Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+            <section data-role="content">  
+                <h2 align="center">Members List</h2>
+                <ul id="fixturesDisplay" data-role="listview" class="ui-listview-inset">
+
+                </ul>
+            </section>
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+
+        </div>
+
+        <!--Members mod page-->
+        <div data-role="page" id="pageDetail">
+            <header data-role="header" data-position="fixed" data-theme="b">
+                <h1>Detail</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                        <li><a href="#pageMembers" data-icon="grid" data-theme="b" class="ui-btn-active ui-state-persist"
+                            >Members</a></li>
+                        <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                        <li><a href="#pageFixtures" data-icon="grid" data-theme="b">Fixtures</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <section data-role="content">
+                <div id="divMainDetail">
+                    <h2 align="center">Modify a Member</h2>
+                    <form id="frmModifyMember" name="frmModifyMember" data-ajax="false">
+
+                        <label for="txtId">Id </label>
+                        <input type="text" id="txtId" name="txtId"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter ID">
+
+                        <label for="txtNameModify">Name </label>
+                        <input type="text" id="txtNameModify" name="txtNameModify"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Name">
+
+                        <label for="txtFullNameModify">Full Name </label>
+                        <input type="text" id="txtFullNameModify" name="txtFullNameModify"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Full Name">
+
+                        <label for="fieldPositionMod">Position </label>
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="fieldPositionMod">
+                            <input type="radio" id="radSTModify" name="radSTCBModify" checked="checked"
+                                   data-theme="a"
+                                   data-iconpos="left" value="Defender">
+                            <label for="radSTModify">Defender</label>
+
+                            <input type="radio" id="radCBModify" name="radSTCBModify" data-theme="a"
+                                   data-iconpos="left" value="Striker">
+                            <label for="radCBModify">Striker</label>
+                        </fieldset>
+                        <label for="txtDOBModify">Date of Birth </label>
+                        <input type="date" id="txtDOBModify" name="txtDOBModify"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter Date of Birth">
+
+                        <div data-role="controlgroup" data-type="horizontal" align="center"><a data-role="button"
+                                                                                               data-icon="back"
+                                                                                               data-rel="back">
+                            Go to previous
+                        </a>
+                            <button type="button" id="btnUpdate" name="btnUpdate" data-icon="check" data-theme="b">
+                                Update
+                            </button>
+                            <button type="button" id="btnDelete" name="btnDelete" data-icon="minus" data-theme="b">
+                                Delete
+                            </button>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </section>
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+        </div>
+
+        <!--Fixtures mod page-->
+        <div data-role="page" id="pageFixMod">
+                <header data-role="header" data-position="fixed" data-theme="b">
+                    <h1>Detail</h1>
+                    <div data-role="navbar" data-iconpos="top">
+                        <ul>
+                            <li><a href="#pageHome" data-icon="home" data-theme="b">Home</a></li>
+                            <li><a href="#pageAdd" data-icon="plus" data-theme="b">Add Member</a></li>
+                            <li><a href="#pageMembers" data-icon="grid" data-theme="b">Members</a></li>
+                            <li><a href="#pageAddFixtures" data-icon="plus" data-theme="b">Register Fixtures</a></li>
+                            <li><a href="#pageFixtures" data-icon="grid" data-theme="b" class="ui-btn-active ui-state-persist"
+                                >Fixtures</a></li>
+                        </ul>
+                    </div>
+
+                </header>
+                <section data-role="content">
+                    <div id="divMainDetail">
+                        <h2 align="center">Modify a Fixture</h2>
+                        <form id="frmModifyFixture" name="frmModifyFixture" data-ajax="false">
+
+                        <label for="txtFixId">Id </label>
+                        <input type="text" id="txtFixId" name="txtFixId"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Enter ID">
+                        
+                        <label for="txtTeam1Mod">First Team </label>
+                        <input type="text" id="txtTeam1Mod" name="txtTeam1Mod"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Team Name">
+                
+                        <label for="txtTeam2Mod">Second Team</label>
+                        <input type="text" id="txtTeam2Mod" name="txtTeam2Mod"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Team Name">
+
+                        <label for="fixtureLocationMod">Match Location</label>
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="fixtureLocationMod">
+                            <input type="radio" id="radMelwoodMod" name="radMelGooMod"
+                                    data-theme="a"
+                                    data-iconpos="left" value="Melwood">
+                            <label for="radMelwoodMod">Melwood</label>
+
+                            <input type="radio" id="radGoodisonMod" name="radMelGooMod" data-theme="a"
+                                    data-iconpos="left" value="Goodison">
+                            <label for="radGoodisonMod">Goodison</label>
+                        </fieldset>
+
+                        <label for="txtDateFixtureMod">Date</label>
+                        <input type="date" id="txtDateFixtureMod" name="txtDateFixtureMod"
+                            class="required" data-theme="a" data-clear-btn="true" placeholder="Enter date and time">
+                            
+
+
+                            <div data-role="controlgroup" data-type="horizontal" align="center"><a data-role="button"
+                                                                                                data-icon="back"
+                                                                                                data-rel="back">
+                                Go to previous
+                            </a>
+                                <button type="button" id="btnFixUpdate" name="btnFixUpdate" data-icon="check" data-theme="b">
+                                    Update
+                                </button>
+                                <button type="button" id="btnFixDelete" name="btnFixDelete" data-icon="minus" data-theme="b">
+                                    Delete
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Sheik Oodally</h4>
+            </footer>
+
+        </div>
+    </body>
+</html>

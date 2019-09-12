@@ -1,0 +1,82 @@
+
+label.error{
+    color: red;
+    font-weight: bold;
+}
+#pageHome{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+#pageAdd{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+#pageMembers{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+#pageAddFixtures{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+#pageFixtures{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+#pageDetail{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}
+
+
+#pageFixMod{
+    height: 900px;
+    background: url("../img/liverpool-fc-logos.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 125% 100%;
+    background-position: center;
+    color: white;
+}

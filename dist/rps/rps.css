@@ -1,0 +1,155 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color:#167FB9;
+	position: relative;
+}
+
+header{
+	background: black;
+	padding: 20px;
+}
+
+header > h1{
+	text-align: center;
+	color: white;
+}
+
+header > h2{
+	text-align: center;
+	color: white;
+}
+
+
+.scorePoints{
+	margin:25px auto;
+	border: 3px solid #000000;
+	border-radius: 4px;
+	text-align: center;
+	width: 225px;
+	color: white;
+	font-size: 44px;
+	padding: 15px 20px;
+	position: relative;
+}
+
+#backBtn{
+	height: 50px;
+	width: 170px;
+}
+
+.descrip{
+	background: #C0292B;
+	color: white;
+	font-size: 18px;
+	padding: 3px 10px;
+}
+
+#userLbl{
+	position: absolute;
+	top: 28px;
+	left: -30px;
+}
+
+#compLbl{
+	position: absolute;
+	top: 28px;
+	right: -22px;
+}
+.result > h1{
+	text-align: center;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.moves{
+	margin: 30px 0;
+	text-align: center;
+}
+
+.move{
+	height: 200px;
+	width: 200px;
+	border: 4px solid #000000;
+	display: inline-block;
+	margin: 0 5px;
+	transition: all 0.35s ease;
+}
+
+.imgsize{
+	height: 192px;
+	width: 192px;
+}
+
+.move:hover{
+	cursor: pointer;
+	background: #989898;
+}
+
+.greenWin{
+	border-color:#07C800;
+}
+
+.redLose{
+	border-color: #970205;
+}
+
+.yellowDraw
+{
+	border-color: #F5DD7D;
+}
+
+#makeMove{
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	font-size: 22px;
+	margin-top: 25px;
+}
+
+footer{
+	height: 75px;
+	background-color: #CF5200;
+	position:fixed;
+	width: 100%;
+	bottom:0;
+	margin: auto;
+	text-align: center;
+}
+
+footer > h3{
+	padding: 25px 0;
+}
+
+@media screen and (max-width: 479px) {
+ 
+main{
+	height: 500px;	
+}
+.move{
+	height: 105px;
+	width: 105px;
+}
+	
+.imgsize{
+	height: 100px;
+	width: 100px;
+}
+	
+.result > h1{
+	font-size: 25px;		
+}
+	
+footer{
+	height: 50px;
+}
+	
+footer > h3{
+	padding: 10px 0;
+}
+	
+}
