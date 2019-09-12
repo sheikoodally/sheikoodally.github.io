@@ -179,7 +179,7 @@ a:hover, a:focus {
 .btnAlignActive {
   position: relative;
   animation-name: btnAlignActive;
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-fill-mode: forwards;
 }
 
